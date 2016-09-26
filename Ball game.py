@@ -8,6 +8,7 @@ WINDOW_Y = 600
 screen = pygame.display.set_mode((WINDOW_X,WINDOW_Y))     #set up PyGame Window
 black = 0,0,0
 count=0
+
 #X,Y Coordinates for where to draw the cannon
 CANNON_X = 30
 CANNON_Y = 425
@@ -16,27 +17,27 @@ sn=20
 #number of cannon shots
 NUMBER_SHOTS= []
 for i in range(1,21):
-    NUMBER_SHOTS.append(pygame.image.load("shots"+str(i)+".png"))
+    NUMBER_SHOTS.append(pygame.image.load("images/shots"+str(i)+".png"))
 xa=0
 POWER=[]
 GRAVITY = 0.8
 #target hits
 score=0
 #Load Cannon Ball image
-cannonball=pygame.image.load("Cannonball.png")
+cannonball=pygame.image.load("images/Cannonball.png")
 #Load the background image
-background = pygame.image.load("Background.png")
+background = pygame.image.load("images/Background.png")
 background_pos = background.get_rect()
 grade=""
 #Load a list of sprite images for the Cannon
 cannon = []
 e= []
 for x in range(7):
-    cannon.append(pygame.image.load("Cannon-"+str(x*15)+".png"))
+    cannon.append(pygame.image.load("images/Cannon-"+str(x*15)+".png"))
 for i in range(1,7):
-    e.append(pygame.image.load("ex"+str(i)+".png"))
+    e.append(pygame.image.load("images/ex"+str(i)+".png"))
 #uploading target image
-TARGET= pygame.image.load("target.png")
+TARGET= pygame.image.load("images/target.png")
 #Target co-ordinates
 TARGET_Y= random.randint(110,500)
 TARGET_X= random.randint(120,750)
@@ -46,13 +47,13 @@ TARGET_POS= (TARGET_X,TARGET_Y)
 #image of target
 # loading a list of power images
 for i in range(1,11):
-    POWER.append(pygame.image.load("power"+str(i)+".png"))
+    POWER.append(pygame.image.load("images/power"+str(i)+".png"))
 #new list and function adding explostion
 e=[]
 T_Images=[]
 
 for i in range(1,21):
-    T_Images.append(pygame.image.load("target"+str(i)+".png"))
+    T_Images.append(pygame.image.load("images/target"+str(i)+".png"))
 
 #We will limit possible shooting angles. A list will correspond with sprite images from cannon[]
 angles = [0,15,30,45,60,75,90]
@@ -101,8 +102,10 @@ class Ball(object):
         self.steps +=1
         if self.steps==self.lifetime:
             self.alive=False
-
         self.pos=self.pos.move(self.x,-self.y)
+
+
+
 ex=[]
 smoke_Particles=[]
 my_font = pygame.font.SysFont("monospace",25)
@@ -110,7 +113,7 @@ my_font2= pygame.font.SysFont("monospace",18)
 #smoke
 smoke=[]
 for i in range(1,5):
-    smoke.append(pygame.image.load("smoke"+str(i)+".png"))
+    smoke.append(pygame.image.load("images/smoke"+str(i)+".png"))
 shots=[]
 while running:
     pygame.mouse.set_visible(1)
